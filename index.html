@@ -78,10 +78,14 @@
     /* ─── LANG SWITCH ─── */
     [data-lang]     { }
     [data-lang="en"]{ display: none; }
+    [data-lang="ru"]{ display: none; }
     body.en [data-lang="es"] { display: none; }
     body.en [data-lang="en"] { display: revert; }
+    body.ru [data-lang="es"] { display: none; }
+    body.ru [data-lang="ru"] { display: revert; }
     /* for flex/inline-flex elements */
     body.en [data-lang="en"].flex-item { display: flex; }
+    body.ru [data-lang="ru"].flex-item { display: flex; }
 
     /* ─── NAVBAR ─── */
     #navbar {
@@ -641,6 +645,8 @@
       <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
       <span class="lang-sep">|</span>
       <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" id="btn-ru" onclick="setLang('ru')">РУ</button>
     </div>
     <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -652,14 +658,19 @@
 <div class="nav-mobile" id="mobile-menu">
   <a href="#about"      onclick="closeMenu()" data-lang="es">Nosotros</a>
   <a href="#about"      onclick="closeMenu()" data-lang="en">About</a>
+  <a href="#about"      onclick="closeMenu()" data-lang="ru">О нас</a>
   <a href="#services"   onclick="closeMenu()" data-lang="es">Servicios</a>
   <a href="#services"   onclick="closeMenu()" data-lang="en">Services</a>
+  <a href="#services"   onclick="closeMenu()" data-lang="ru">Услуги</a>
   <a href="#rituals"    onclick="closeMenu()" data-lang="es">Rituales</a>
   <a href="#rituals"    onclick="closeMenu()" data-lang="en">Rituals</a>
+  <a href="#rituals"    onclick="closeMenu()" data-lang="ru">Ритуалы</a>
   <a href="#membership" onclick="closeMenu()" data-lang="es">Membresía</a>
   <a href="#membership" onclick="closeMenu()" data-lang="en">Membership</a>
+  <a href="#membership" onclick="closeMenu()" data-lang="ru">Членство</a>
   <a href="#contact"    onclick="closeMenu()" data-lang="es">Contacto</a>
   <a href="#contact"    onclick="closeMenu()" data-lang="en">Contact</a>
+  <a href="#contact"    onclick="closeMenu()" data-lang="ru">Контакты</a>
 </div>
 
 <!-- ═══════════════ HERO ═══════════════ -->
@@ -672,44 +683,52 @@
   <div class="hero-content">
     <p class="hero-eyebrow" data-lang="es">Punta Cana · República Dominicana</p>
     <p class="hero-eyebrow" data-lang="en">Punta Cana · Dominican Republic</p>
+    <p class="hero-eyebrow" data-lang="ru">Пунта-Кана · Доминиканская Республика</p>
 
     <h1 class="hero-title serif">MAISON<br>HIKARI</h1>
     <p class="hero-subtitle" data-lang="es">Donde la medicina estética encuentra el ritual del bienestar</p>
     <p class="hero-subtitle" data-lang="en">Where medical aesthetics meets the ritual of wellness</p>
+    <p class="hero-subtitle" data-lang="ru">Где эстетическая медицина встречает ритуал красоты</p>
 
     <div class="hero-divider"></div>
 
     <p class="hero-opening" data-lang="es">✦ Gran apertura ✦</p>
     <p class="hero-opening" data-lang="en">✦ Grand opening ✦</p>
+    <p class="hero-opening" data-lang="ru">✦ Торжественное открытие ✦</p>
 
     <div class="countdown-wrap">
       <div class="countdown-item">
         <span class="countdown-num" id="cd-days">--</span>
         <span class="countdown-label" data-lang="es">Días</span>
         <span class="countdown-label" data-lang="en">Days</span>
+        <span class="countdown-label" data-lang="ru">Дней</span>
       </div>
       <span class="countdown-sep">·</span>
       <div class="countdown-item">
         <span class="countdown-num" id="cd-hours">--</span>
         <span class="countdown-label" data-lang="es">Horas</span>
         <span class="countdown-label" data-lang="en">Hours</span>
+        <span class="countdown-label" data-lang="ru">Часов</span>
       </div>
       <span class="countdown-sep">·</span>
       <div class="countdown-item">
         <span class="countdown-num" id="cd-mins">--</span>
         <span class="countdown-label" data-lang="es">Minutos</span>
         <span class="countdown-label" data-lang="en">Minutes</span>
+        <span class="countdown-label" data-lang="ru">Минут</span>
       </div>
       <span class="countdown-sep">·</span>
       <div class="countdown-item">
         <span class="countdown-num" id="cd-secs">--</span>
         <span class="countdown-label" data-lang="es">Segundos</span>
         <span class="countdown-label" data-lang="en">Seconds</span>
+        <span class="countdown-label" data-lang="ru">Секунд</span>
       </div>
     </div>
 
     <p class="hero-tagline" data-lang="es">17 · IV · 2026 · Edificio Aqua Business, Local 401</p>
     <p class="hero-tagline" data-lang="en">April 17th · 2026 · Aqua Business Building, Suite 401</p>
+    <p class="hero-tagline" data-lang="ru">17 апреля · 2026 · Aqua Business Building, Suite 401</p>
 
     <div class="hero-cta">
       <a href="https://wa.me/18097001234" target="_blank" rel="noopener" class="btn btn-gold" data-lang="es">
@@ -720,541 +739,21 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Book your appointment
       </a>
+      <a href="https://wa.me/18097001234" target="_blank" rel="noopener" class="btn btn-gold" data-lang="ru">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Записаться
+      </a>
       <a href="#about" class="btn btn-outline" data-lang="es">Descubrir más</a>
       <a href="#about" class="btn btn-outline" data-lang="en">Discover more</a>
+      <a href="#about" class="btn btn-outline" data-lang="ru">Узнать больше</a>
     </div>
+
   </div>
 
   <div class="hero-scroll">
     <div class="scroll-line"></div>
     <span data-lang="es">Explorar</span>
     <span data-lang="en">Scroll</span>
+    <span data-lang="ru">Листать</span>
   </div>
 </section>
-
-<!-- ═══════════════ ABOUT ═══════════════ -->
-<section id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-img-wrap">
-        <div class="about-img-placeholder">
-          <div class="about-img-icon">✦</div>
-          <span class="about-img-text" data-lang="es">Fotos próximamente</span>
-          <span class="about-img-text" data-lang="en">Photos coming soon</span>
-        </div>
-        <div class="about-corner"></div>
-      </div>
-      <div class="about-text">
-        <span class="eyebrow" data-lang="es">Nuestra historia</span>
-        <span class="eyebrow" data-lang="en">Our story</span>
-        <div class="divider"></div>
-        <h2 class="section-title" data-lang="es">Un santuario donde la ciencia y la belleza se fusionan</h2>
-        <h2 class="section-title" data-lang="en">A sanctuary where science and beauty merge</h2>
-        <br>
-        <p data-lang="es">
-          MAISON HIKARI nace de una visión: crear un espacio donde la medicina estética avanzada se vive como un ritual de lujo. "Hikari" —光, luz en japonés— refleja nuestra esencia: iluminar tu belleza natural con precisión científica y cuidado artesanal.
-        </p>
-        <p data-lang="en">
-          MAISON HIKARI was born from a vision: to create a space where advanced medical aesthetics is experienced as a luxury ritual. "Hikari" — 光, light in Japanese — reflects our essence: illuminating your natural beauty with scientific precision and artisanal care.
-        </p>
-        <p data-lang="es">
-          Situado en el corazón de Punta Cana, en el exclusivo Edificio Aqua Business, nuestro santuario fusiona los últimos avances en medicina estética con una filosofía holística del bienestar. Cada visita es una experiencia transformadora, diseñada para revelar la mejor versión de ti.
-        </p>
-        <p data-lang="en">
-          Located in the heart of Punta Cana, in the exclusive Aqua Business Building, our sanctuary combines the latest advances in medical aesthetics with a holistic wellness philosophy. Every visit is a transformative experience, designed to reveal your best self.
-        </p>
-        <div class="about-founder">
-          <div class="founder-avatar">AG</div>
-          <div class="founder-info">
-            <strong>Ana Gallego</strong>
-            <span data-lang="es">Fundadora & Directora Médica</span>
-            <span data-lang="en">Founder & Medical Director</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ SERVICES ═══════════════ -->
-<section id="services">
-  <div class="container">
-    <span class="eyebrow" data-lang="es">Nuestros servicios</span>
-    <span class="eyebrow" data-lang="en">Our services</span>
-    <div class="divider"></div>
-    <h2 class="section-title" data-lang="es">Tratamientos de excelencia para cada necesidad</h2>
-    <h2 class="section-title" data-lang="en">Excellence treatments for every need</h2>
-    <p class="section-subtitle" style="color:rgba(255,255,255,.45);margin-top:1rem;" data-lang="es">Cada tratamiento es diseñado individualmente, combinando lo mejor de la medicina estética moderna con un enfoque holístico.</p>
-    <p class="section-subtitle" style="color:rgba(255,255,255,.45);margin-top:1rem;" data-lang="en">Each treatment is designed individually, combining the best of modern medical aesthetics with a holistic approach.</p>
-
-    <div class="services-grid">
-      <!-- 1 -->
-      <div class="service-card">
-        <div class="service-icon">✦</div>
-        <h3 class="service-title" data-lang="es">Medicina Estética Facial</h3>
-        <h3 class="service-title" data-lang="en">Facial Aesthetic Medicine</h3>
-        <p class="service-desc" data-lang="es">Toxina botulínica, rellenos de ácido hialurónico, biorrevitalización y tratamientos de lifting no quirúrgico con resultados naturales y duraderos.</p>
-        <p class="service-desc" data-lang="en">Botulinum toxin, hyaluronic acid fillers, biorevitalization and non-surgical lifting treatments with natural, long-lasting results.</p>
-        <span class="service-link" data-lang="es">Conocer más →</span>
-        <span class="service-link" data-lang="en">Learn more →</span>
-      </div>
-      <!-- 2 -->
-      <div class="service-card">
-        <div class="service-icon">◈</div>
-        <h3 class="service-title" data-lang="es">Tecnología de Vanguardia</h3>
-        <h3 class="service-title" data-lang="en">Cutting-Edge Technology</h3>
-        <p class="service-desc" data-lang="es">Láser fraccionado, radiofrecuencia, HIFU, criolipólisis y luz pulsada intensa (IPL) para rejuvenecimiento y remodelación corporal sin cirugía.</p>
-        <p class="service-desc" data-lang="en">Fractional laser, radiofrequency, HIFU, cryolipolysis and intense pulsed light (IPL) for rejuvenation and body remodeling without surgery.</p>
-        <span class="service-link" data-lang="es">Conocer más →</span>
-        <span class="service-link" data-lang="en">Learn more →</span>
-      </div>
-      <!-- 3 -->
-      <div class="service-card">
-        <div class="service-icon">⬡</div>
-        <h3 class="service-title" data-lang="es">Bienestar & Nutrición</h3>
-        <h3 class="service-title" data-lang="en">Wellness & Nutrition</h3>
-        <p class="service-desc" data-lang="es">Programas personalizados de nutrición estética, suplementación de precisión, mesoterapia vitamínica y terapias de bienestar integral.</p>
-        <p class="service-desc" data-lang="en">Personalized aesthetic nutrition programs, precision supplementation, vitamin mesotherapy and comprehensive wellness therapies.</p>
-        <span class="service-link" data-lang="es">Conocer más →</span>
-        <span class="service-link" data-lang="en">Learn more →</span>
-      </div>
-      <!-- 4 -->
-      <div class="service-card">
-        <div class="service-icon">◉</div>
-        <h3 class="service-title" data-lang="es">Tratamientos Corporales</h3>
-        <h3 class="service-title" data-lang="en">Body Treatments</h3>
-        <p class="service-desc" data-lang="es">Escultura corporal no invasiva, tratamientos reductores, drenaje linfático de lujo, envolturas y rituales corporales de alta cosmética.</p>
-        <p class="service-desc" data-lang="en">Non-invasive body sculpting, slimming treatments, luxury lymphatic drainage, wraps and high cosmetics body rituals.</p>
-        <span class="service-link" data-lang="es">Conocer más →</span>
-        <span class="service-link" data-lang="en">Learn more →</span>
-      </div>
-      <!-- 5 -->
-      <div class="service-card">
-        <div class="service-icon">✿</div>
-        <h3 class="service-title" data-lang="es">Skincare de Alta Gama</h3>
-        <h3 class="service-title" data-lang="en">Prestige Skincare</h3>
-        <p class="service-desc" data-lang="es">Faciales médicos personalizados, peelings químicos de última generación, microdermoabrasión con diamante y tratamientos para pieles sensibles.</p>
-        <p class="service-desc" data-lang="en">Personalized medical facials, next-generation chemical peels, diamond microdermabrasion and treatments for sensitive skin.</p>
-        <span class="service-link" data-lang="es">Conocer más →</span>
-        <span class="service-link" data-lang="en">Learn more →</span>
-      </div>
-      <!-- 6 -->
-      <div class="service-card">
-        <div class="service-icon">⟡</div>
-        <h3 class="service-title" data-lang="es">Medicina Anti-Aging</h3>
-        <h3 class="service-title" data-lang="en">Anti-Aging Medicine</h3>
-        <p class="service-desc" data-lang="es">Protocolos de longevidad y bienestar celular, terapia con factores de crecimiento (PRP/PRF), ozono, infusiones IV de vitaminas y análisis hormonal.</p>
-        <p class="service-desc" data-lang="en">Longevity and cellular wellness protocols, growth factor therapy (PRP/PRF), ozone, vitamin IV infusions and hormonal analysis.</p>
-        <span class="service-link" data-lang="es">Conocer más →</span>
-        <span class="service-link" data-lang="en">Learn more →</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ RITUALS ═══════════════ -->
-<section id="rituals">
-  <div class="container">
-    <span class="eyebrow" data-lang="es">Experiencias exclusivas</span>
-    <span class="eyebrow" data-lang="en">Exclusive experiences</span>
-    <div class="divider"></div>
-    <h2 class="section-title" data-lang="es">Los Rituales Signature de Hikari</h2>
-    <h2 class="section-title" data-lang="en">The Hikari Signature Rituals</h2>
-    <p class="section-subtitle" style="margin-top:1rem;" data-lang="es">Experiencias únicas que combinan protocolos médicos avanzados con el arte del bienestar. Cada ritual es un viaje hacia tu mejor versión.</p>
-    <p class="section-subtitle" style="margin-top:1rem;" data-lang="en">Unique experiences combining advanced medical protocols with the art of wellness. Each ritual is a journey towards your best self.</p>
-
-    <div class="rituals-grid">
-      <!-- Ritual 1 -->
-      <div class="ritual-card">
-        <span class="ritual-num">01</span>
-        <span class="ritual-badge" data-lang="es">Ritual Signature</span>
-        <span class="ritual-badge" data-lang="en">Signature Ritual</span>
-        <h3 class="ritual-title" data-lang="es">Hikari Luminosity Protocol</h3>
-        <h3 class="ritual-title" data-lang="en">Hikari Luminosity Protocol</h3>
-        <p class="ritual-desc" data-lang="es">
-          Nuestro ritual más completo: comienza con una consulta médica personalizada, seguida de un tratamiento facial médico de alta tecnología combinado con mesoterapia vitamínica y una sesión de fototerapia LED. Finaliza con un masaje facial de sculpting y la aplicación de nuestra línea exclusiva de cosmética de lujo.
-        </p>
-        <p class="ritual-desc" data-lang="en">
-          Our most complete ritual: begins with a personalized medical consultation, followed by a high-tech medical facial treatment combined with vitamin mesotherapy and an LED phototherapy session. Ends with a sculpting facial massage and application of our exclusive luxury cosmetics line.
-        </p>
-        <span class="ritual-duration" data-lang="es">✦ 3 horas de experiencia total</span>
-        <span class="ritual-duration" data-lang="en">✦ 3 hours of total experience</span>
-      </div>
-      <!-- Ritual 2 -->
-      <div class="ritual-card">
-        <span class="ritual-num">02</span>
-        <span class="ritual-badge" data-lang="es">Ritual de Temporada</span>
-        <span class="ritual-badge" data-lang="en">Seasonal Ritual</span>
-        <h3 class="ritual-title" data-lang="es">Sakura Renewal Experience</h3>
-        <h3 class="ritual-title" data-lang="en">Sakura Renewal Experience</h3>
-        <p class="ritual-desc" data-lang="es">
-          Inspirado en el florecimiento del cerezo japonés —símbolo de la renovación—, este ritual comienza con un peeling enzimático de cerezas, seguido de una mascarilla de nanocolágeno y un tratamiento con microagujas para estimular la producción de colágeno. Incluye drenaje linfático facial y un infusión IV de vitamina C.
-        </p>
-        <p class="ritual-desc" data-lang="en">
-          Inspired by the blossoming of the Japanese cherry tree — a symbol of renewal — this ritual begins with a cherry enzyme peel, followed by a nanocollagen mask and a microneedling treatment to stimulate collagen production. Includes facial lymphatic drainage and a vitamin C IV infusion.
-        </p>
-        <span class="ritual-duration" data-lang="es">✦ 2.5 horas · Disponible por temporadas</span>
-        <span class="ritual-duration" data-lang="en">✦ 2.5 hours · Available seasonally</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ MEMBERSHIP ═══════════════ -->
-<section id="membership">
-  <div class="container">
-    <div class="membership-inner">
-      <div class="membership-text">
-        <span class="eyebrow" data-lang="es">Club exclusivo</span>
-        <span class="eyebrow" data-lang="en">Exclusive club</span>
-        <div class="divider"></div>
-        <h2 class="section-title" data-lang="es">Hikari Members Club</h2>
-        <h2 class="section-title" data-lang="en">Hikari Members Club</h2>
-        <p class="section-subtitle" data-lang="es">
-          Accede a un mundo de privilegios exclusivos diseñados para quienes merecen lo mejor. Nuestra membresía te da acceso prioritario a todos nuestros tratamientos y rituales de bienestar con beneficios únicos.
-        </p>
-        <p class="section-subtitle" data-lang="en">
-          Enter a world of exclusive privileges designed for those who deserve the best. Our membership gives you priority access to all our treatments and wellness rituals with unique benefits.
-        </p>
-        <div class="membership-perks">
-          <div class="perk">
-            <div class="perk-icon">⚡</div>
-            <div class="perk-content">
-              <strong data-lang="es">Acceso Prioritario VIP</strong>
-              <strong data-lang="en">VIP Priority Access</strong>
-              <span data-lang="es">Reservas con máxima prioridad y franjas horarias exclusivas para miembros.</span>
-              <span data-lang="en">Bookings with maximum priority and exclusive time slots for members.</span>
-            </div>
-          </div>
-          <div class="perk">
-            <div class="perk-icon">◈</div>
-            <div class="perk-content">
-              <strong data-lang="es">Descuentos y Beneficios</strong>
-              <strong data-lang="en">Discounts & Benefits</strong>
-              <span data-lang="es">Hasta un 20% de descuento en todos los tratamientos y acceso a promociones exclusivas.</span>
-              <span data-lang="en">Up to 20% discount on all treatments and access to exclusive promotions.</span>
-            </div>
-          </div>
-          <div class="perk">
-            <div class="perk-icon">✿</div>
-            <div class="perk-content">
-              <strong data-lang="es">Consultas Personalizadas</strong>
-              <strong data-lang="en">Personalized Consultations</strong>
-              <span data-lang="es">Seguimiento médico personalizado y plan de bienestar adaptado a tus objetivos.</span>
-              <span data-lang="en">Personalized medical follow-up and wellness plan tailored to your goals.</span>
-            </div>
-          </div>
-        </div>
-        <div class="membership-cta">
-          <a href="https://wa.me/18097001234" target="_blank" class="btn btn-outline" data-lang="es">Solicitar información</a>
-          <a href="https://wa.me/18097001234" target="_blank" class="btn btn-outline" data-lang="en">Request information</a>
-        </div>
-      </div>
-
-      <div class="membership-card">
-        <div class="membership-card-badge">
-          <span>★</span>
-          <span data-lang="es">Hikari Prestige Member</span>
-          <span data-lang="en">Hikari Prestige Member</span>
-        </div>
-        <h3 class="membership-card-title" data-lang="es">Acceso Todo Incluido</h3>
-        <h3 class="membership-card-title" data-lang="en">All-Inclusive Access</h3>
-        <p class="membership-card-sub" data-lang="es">Disponible a partir de la apertura · 17 de abril 2026</p>
-        <p class="membership-card-sub" data-lang="en">Available from opening · April 17th, 2026</p>
-        <div class="membership-card-features">
-          <div class="feature-row">
-            <span class="feature-check">✓</span>
-            <span data-lang="es">Consultas médicas ilimitadas</span>
-            <span data-lang="en">Unlimited medical consultations</span>
-          </div>
-          <div class="feature-row">
-            <span class="feature-check">✓</span>
-            <span data-lang="es">Descuento del 20% en todos los tratamientos</span>
-            <span data-lang="en">20% discount on all treatments</span>
-          </div>
-          <div class="feature-row">
-            <span class="feature-check">✓</span>
-            <span data-lang="es">1 Ritual Signature mensual incluido</span>
-            <span data-lang="en">1 Monthly Signature Ritual included</span>
-          </div>
-          <div class="feature-row">
-            <span class="feature-check">✓</span>
-            <span data-lang="es">Acceso a nuevos tratamientos en avant-première</span>
-            <span data-lang="en">Access to new treatments avant-première</span>
-          </div>
-          <div class="feature-row">
-            <span class="feature-check">✓</span>
-            <span data-lang="es">Invitaciones a eventos y masterclasses exclusivos</span>
-            <span data-lang="en">Invitations to exclusive events & masterclasses</span>
-          </div>
-          <div class="feature-row">
-            <span class="feature-check">✓</span>
-            <span data-lang="es">Productos de cosmética de lujo de cortesía</span>
-            <span data-lang="en">Complimentary luxury cosmetics products</span>
-          </div>
-        </div>
-        <a href="https://wa.me/18097001234" target="_blank" class="btn btn-gold" style="width:100%;justify-content:center;" data-lang="es">
-          Pre-registrarme ahora
-        </a>
-        <a href="https://wa.me/18097001234" target="_blank" class="btn btn-gold" style="width:100%;justify-content:center;" data-lang="en">
-          Pre-register now
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ PHILOSOPHY ═══════════════ -->
-<section id="philosophy">
-  <div class="philosophy-content">
-    <span class="quote-mark">"</span>
-    <blockquote class="philosophy-quote" data-lang="es">
-      La belleza auténtica no se impone, se revela. En MAISON HIKARI, cada tratamiento es un acto de devoción hacia tu esencia natural — una fusión de ciencia de precisión y el antiguo arte del cuidado de uno mismo.
-    </blockquote>
-    <blockquote class="philosophy-quote" data-lang="en">
-      Authentic beauty is not imposed, it is revealed. At MAISON HIKARI, every treatment is an act of devotion towards your natural essence — a fusion of precision science and the ancient art of self-care.
-    </blockquote>
-    <p class="philosophy-attr">— Ana Gallego, <span data-lang="es">Fundadora de MAISON HIKARI</span><span data-lang="en">Founder of MAISON HIKARI</span></p>
-  </div>
-</section>
-
-<!-- ═══════════════ GALLERY ═══════════════ -->
-<section id="gallery">
-  <div class="container">
-    <span class="eyebrow" data-lang="es">Nuestro espacio</span>
-    <span class="eyebrow" data-lang="en">Our space</span>
-    <div class="divider"></div>
-    <h2 class="section-title" data-lang="es">Una experiencia visual única</h2>
-    <h2 class="section-title" data-lang="en">A unique visual experience</h2>
-    <p class="section-subtitle" style="margin-top:1rem;" data-lang="es">Nuestro espacio está siendo diseñado con el máximo detalle. Las fotografías llegarán pronto para mostrarte la magia de MAISON HIKARI.</p>
-    <p class="section-subtitle" style="margin-top:1rem;" data-lang="en">Our space is being designed with the utmost detail. Photographs will arrive soon to show you the magic of MAISON HIKARI.</p>
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <span class="gallery-icon">✦</span>
-        <span class="gallery-coming" data-lang="es">Próximamente</span>
-        <span class="gallery-coming" data-lang="en">Coming Soon</span>
-      </div>
-      <div class="gallery-item">
-        <span class="gallery-icon">◈</span>
-        <span class="gallery-coming" data-lang="es">Próximamente</span>
-        <span class="gallery-coming" data-lang="en">Coming Soon</span>
-      </div>
-      <div class="gallery-item">
-        <span class="gallery-icon">◉</span>
-        <span class="gallery-coming" data-lang="es">Próximamente</span>
-        <span class="gallery-coming" data-lang="en">Coming Soon</span>
-      </div>
-      <div class="gallery-item">
-        <span class="gallery-icon">✿</span>
-        <span class="gallery-coming" data-lang="es">Próximamente</span>
-        <span class="gallery-coming" data-lang="en">Coming Soon</span>
-      </div>
-      <div class="gallery-item">
-        <span class="gallery-icon">⬡</span>
-        <span class="gallery-coming" data-lang="es">Próximamente</span>
-        <span class="gallery-coming" data-lang="en">Coming Soon</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ CONTACT ═══════════════ -->
-<section id="contact">
-  <div class="container">
-    <span class="eyebrow" data-lang="es">Encuéntranos</span>
-    <span class="eyebrow" data-lang="en">Find us</span>
-    <div class="divider"></div>
-    <h2 class="section-title" data-lang="es">Visítanos en Punta Cana</h2>
-    <h2 class="section-title" data-lang="en">Visit us in Punta Cana</h2>
-
-    <div class="contact-grid">
-      <div class="contact-info">
-        <div class="contact-block">
-          <p class="contact-block-label" data-lang="es">Dirección</p>
-          <p class="contact-block-label" data-lang="en">Address</p>
-          <a href="https://maps.google.com?q=Avenida+1+de+Noviembre+Edificio+Aqua+Business+Punta+Cana" target="_blank" class="contact-link">
-            <span class="contact-link-icon">📍</span>
-            <span>Av. 1 de Noviembre, Edificio Aqua Business<br>Local 401 · Punta Cana, República Dominicana</span>
-          </a>
-        </div>
-        <div class="contact-block">
-          <p class="contact-block-label" data-lang="es">Contacto directo</p>
-          <p class="contact-block-label" data-lang="en">Direct contact</p>
-          <a href="https://wa.me/18097001234" target="_blank" class="contact-link">
-            <span class="contact-link-icon">💬</span>
-            <span data-lang="es">WhatsApp · Citas y consultas</span>
-            <span data-lang="en">WhatsApp · Appointments & inquiries</span>
-          </a>
-          <a href="tel:+18097001234" class="contact-link">
-            <span class="contact-link-icon">📞</span>
-            <span>+1 (809) 700-1234</span>
-          </a>
-          <a href="mailto:info@maisonhikari.com" class="contact-link">
-            <span class="contact-link-icon">✉</span>
-            <span>info@maisonhikari.com</span>
-          </a>
-          <a href="https://instagram.com/maisonhikari" target="_blank" class="contact-link">
-            <span class="contact-link-icon">◈</span>
-            <span>@maisonhikari</span>
-          </a>
-        </div>
-        <div class="contact-block">
-          <p class="contact-block-label" data-lang="es">Horario de apertura</p>
-          <p class="contact-block-label" data-lang="en">Opening hours</p>
-          <div class="hours-row">
-            <span data-lang="es">Lunes – Viernes</span>
-            <span data-lang="en">Monday – Friday</span>
-            <span>9:00 – 19:00</span>
-          </div>
-          <div class="hours-row">
-            <span data-lang="es">Sábados</span>
-            <span data-lang="en">Saturday</span>
-            <span>10:00 – 16:00</span>
-          </div>
-          <div class="hours-row">
-            <span data-lang="es">Domingos</span>
-            <span data-lang="en">Sunday</span>
-            <span data-lang="es">Cerrado</span>
-            <span data-lang="en">Closed</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-map">
-        <div class="map-placeholder-icon">📍</div>
-        <div class="map-address" data-lang="es">
-          Av. 1 de Noviembre<br>
-          Edificio Aqua Business, Local 401<br>
-          Punta Cana, República Dominicana
-        </div>
-        <div class="map-address" data-lang="en">
-          Av. 1 de Noviembre<br>
-          Aqua Business Building, Suite 401<br>
-          Punta Cana, Dominican Republic
-        </div>
-        <a href="https://maps.google.com?q=Avenida+1+de+Noviembre+Edificio+Aqua+Business+Punta+Cana" target="_blank" class="map-link" data-lang="es">
-          Ver en Google Maps →
-        </a>
-        <a href="https://maps.google.com?q=Avenida+1+de+Noviembre+Edificio+Aqua+Business+Punta+Cana" target="_blank" class="map-link" data-lang="en">
-          View on Google Maps →
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ FOOTER ═══════════════ -->
-<footer>
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-logo">MAISON <span>HIKARI</span></div>
-      <p class="footer-tagline" data-lang="es">Donde la medicina estética encuentra el ritual del bienestar</p>
-      <p class="footer-tagline" data-lang="en">Where medical aesthetics meets the ritual of wellness</p>
-      <div class="footer-socials">
-        <a href="https://instagram.com/maisonhikari" target="_blank" class="social-btn" aria-label="Instagram">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        </a>
-        <a href="https://wa.me/18097001234" target="_blank" class="social-btn" aria-label="WhatsApp">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </a>
-      </div>
-      <nav class="footer-links">
-        <a href="#about"      data-lang="es">Nosotros</a>
-        <a href="#about"      data-lang="en">About</a>
-        <a href="#services"   data-lang="es">Servicios</a>
-        <a href="#services"   data-lang="en">Services</a>
-        <a href="#rituals"    data-lang="es">Rituales</a>
-        <a href="#rituals"    data-lang="en">Rituals</a>
-        <a href="#membership" data-lang="es">Membresía</a>
-        <a href="#membership" data-lang="en">Membership</a>
-        <a href="#contact"    data-lang="es">Contacto</a>
-        <a href="#contact"    data-lang="en">Contact</a>
-      </nav>
-      <p class="footer-copy">© 2026 MAISON HIKARI · Punta Cana, República Dominicana · <span data-lang="es">Todos los derechos reservados</span><span data-lang="en">All rights reserved</span></p>
-    </div>
-  </div>
-</footer>
-
-<!-- WhatsApp FAB -->
-<a href="https://wa.me/18097001234" target="_blank" rel="noopener" class="whatsapp-fab" title="WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
-
-<!-- ═══════════════ SCRIPTS ═══════════════ -->
-<script>
-  /* ── Language switcher ── */
-  function setLang(lang) {
-    if (lang === 'en') {
-      document.body.classList.add('en');
-      document.documentElement.lang = 'en';
-    } else {
-      document.body.classList.remove('en');
-      document.documentElement.lang = 'es';
-    }
-    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
-    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    localStorage.setItem('mh-lang', lang);
-  }
-  /* restore preference */
-  (function(){
-    try {
-      const saved = localStorage.getItem('mh-lang');
-      if (saved === 'en') setLang('en');
-    } catch(e) {}
-  })();
-
-  /* ── Navbar scroll ── */
-  const nav = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 50);
-  }, { passive: true });
-
-  /* ── Mobile menu ── */
-  function toggleMenu() {
-    document.getElementById('mobile-menu').classList.toggle('open');
-  }
-  function closeMenu() {
-    document.getElementById('mobile-menu').classList.remove('open');
-  }
-
-  /* ── Countdown ── */
-  function updateCountdown() {
-    const target = new Date('2026-04-17T10:00:00-04:00');
-    const now    = new Date();
-    const diff   = target - now;
-    if (diff <= 0) {
-      ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => {
-        document.getElementById(id).textContent = '00';
-      });
-      return;
-    }
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor((diff % 86400000) / 3600000);
-    const m = Math.floor((diff % 3600000)  / 60000);
-    const s = Math.floor((diff % 60000)    / 1000);
-    document.getElementById('cd-days').textContent  = String(d).padStart(2,'0');
-    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
-    document.getElementById('cd-mins').textContent  = String(m).padStart(2,'0');
-    document.getElementById('cd-secs').textContent  = String(s).padStart(2,'0');
-  }
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-
-  /* ── Intersection Observer animations ── */
-  if ('IntersectionObserver' in window) {
-    const style = document.createElement('style');
-    style.textContent = `
-      .fade-up { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
-      .fade-up.visible { opacity: 1; transform: none; }
-    `;
-    document.head.appendChild(style);
-    const items = document.querySelectorAll('.service-card, .ritual-card, .perk, .about-text p, .membership-card');
-    items.forEach(el => el.classList.add('fade-up'));
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-    }, { threshold: 0.12 });
-    items.forEach(el => obs.observe(el));
-  }
-</script>
-</body>
-</html>
