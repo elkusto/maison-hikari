@@ -42,514 +42,963 @@
       font-weight: 500;
       line-height: 1.15;
     }
-    .h2, h2 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 500; }
-    .h3, h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.25rem; font-weight: 500; }
-    .body-md { font-size: 1.125rem; line-height: 1.5; }
-    .body-sm { font-size: 0.95rem; line-height: 1.6; }
-    .caption { font-size: 0.85rem; opacity: 0.85; }
-
-    /* ─── COLORS & ACCENTS ─── */
-    .text-green  { color: var(--green); }
-    .text-gold   { color: var(--gold); }
-    .text-white  { color: var(--white); }
-    .text-dark   { color: var(--dark); }
-    .bg-green    { background: var(--green); }
-    .bg-gold     { background: var(--gold); }
-    .bg-dark     { background: var(--dark); }
-
-    /* ─── SPACING ─── */
-    .section     { padding: clamp(3rem, 8vw, 7rem) 5vw; }
-    .section-sm  { padding: clamp(2rem, 6vw, 4rem) 5vw; }
-    .container   { max-width: 1400px; margin: 0 auto; width: 100%; }
-
-    /* ─── FLEXBOX ─── */
-    .flex      { display: flex; }
-    .flex-col  { flex-direction: column; }
-    .flex-wrap { flex-wrap: wrap; }
-    .flex-center { justify-content: center; align-items: center; }
-    .flex-between { justify-content: space-between; align-items: center; }
-    .gap-1 { gap: 1rem; }
-    .gap-2 { gap: 2rem; }
-    .gap-3 { gap: 3rem; }
-
-    /* ─── NAVIGATION ─── */
-    nav { position: sticky; top: 0; z-index: 100; background: var(--ivory); border-bottom: 1px solid rgba(0,0,0,0.08); }
-    .navbar { height: var(--nav-h); padding: 0 5vw; display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
-    .nav-logo span { color: var(--gold); }
-    .nav-links { display: flex; gap: 3rem; list-style: none; margin: 0; padding: 0; }
-    .nav-links a { font-size: 0.95rem; color: var(--charcoal); transition: color 0.3s ease; text-decoration: none; }
-    .nav-links a:hover { color: var(--gold); }
-    .nav-lang { display: flex; gap: 1.5rem; }
-    .nav-lang button { background: none; border: none; font-size: 0.9rem; cursor: pointer; color: var(--charcoal); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s ease; font-weight: 500; }
-    .nav-lang button.active { color: var(--gold); }
-    .nav-lang button:hover { color: var(--gold); }
-    .nav-mobile { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--ivory); flex-direction: column; padding: 2rem 5vw; gap: 1.5rem; max-height: calc(100vh - var(--nav-h)); overflow-y: auto; border-bottom: 1px solid rgba(0,0,0,0.08); }
-    .nav-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
-
-    @media (max-width: 800px) {
-      .nav-links { display: none; }
-      .nav-lang { display: none; }
-      .nav-toggle { display: block; }
-      .nav-mobile.active { display: flex; }
-    }
-
-    /* ─── LANG SWITCH ─── */
-    [data-lang]     { }
-    body [data-lang="en"]{ display: none; }
-    body [data-lang="ru"]{ display: none; }
-    body.en [data-lang="es"] { display: none; }
-    body.en [data-lang="en"] { display: revert; }
-    body.ru [data-lang="es"] { display: none; }
-    body.ru [data-lang="ru"] { display: revert; }
-    /* for flex/inline-flex elements */
-    body.en [data-lang="en"].flex-item { display: flex; }
-    body.ru [data-lang="ru"].flex-item { display: flex; }
+    .h2 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); font-weight: 600; line-height: 1.2; font-family: 'Playfair Display', serif; }
+    .h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 600; line-height: 1.3; font-family: 'Playfair Display', serif; }
+    .small-text { font-size: .85rem; letter-spacing: .05em; line-height: 1.6; color: #666; }
+    p { line-height: 1.7; margin: 0 0 1rem 0; }
+    .lead { font-size: 1.1rem; line-height: 1.8; color: #555; }
 
     /* ─── BUTTONS ─── */
-    .btn { padding: 0.85rem 2rem; font-size: 0.95rem; border: none; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; border-radius: 0; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
-    .btn-gold { background: var(--gold); color: var(--white); }
-    .btn-gold:hover { background: var(--gold2); }
-    .btn-white { background: var(--white); color: var(--charcoal); border: 2px solid var(--white); }
-    .btn-white:hover { background: transparent; color: var(--white); }
-    .btn-outlined { background: transparent; color: var(--charcoal); border: 2px solid var(--charcoal); }
-    .btn-outlined:hover { background: var(--charcoal); color: var(--white); }
-    .btn-dark { background: var(--dark); color: var(--white); }
-    .btn-dark:hover { background: var(--dark); }
-
-    /* ─── HERO ─── */
-    #hero { min-height: 100vh; background: linear-gradient(135deg, var(--ivory) 0%, var(--ivory2) 100%); display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
-    #hero::before { content: ''; position: absolute; top: -50%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(207, 180, 130, 0.1) 0%, transparent 70%); border-radius: 50%; }
-    #hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 700; line-height: 1.1; margin-bottom: 1rem; color: var(--dark); }
-    #hero .subtitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.2rem, 3vw, 2rem); font-style: italic; color: var(--green); margin-bottom: 2.5rem; font-weight: 300; }
-    #hero .cta { margin-top: 3rem; }
-
-    /* ─── ABOUT ─── */
-    #about { background: var(--white); }
-    #about .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-    #about img { border-radius: 8px; }
-    #about h2 { margin-bottom: 1.5rem; }
-    #about p { margin-bottom: 1rem; font-size: 1.05rem; line-height: 1.7; color: rgba(0,0,0,0.8); }
-    @media (max-width: 1000px) {
-      #about .grid { grid-template-columns: 1fr; }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.75rem;
+      border: 1.5px solid var(--gold);
+      background: transparent;
+      color: var(--gold);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn:hover {
+      background: var(--gold);
+      color: var(--white);
+    }
+    .btn-gold {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--dark);
+    }
+    .btn-gold:hover {
+      background: var(--gold2);
+      border-color: var(--gold2);
     }
 
-    /* ─── SERVICES ─── */
-    #services { background: var(--ivory2); }
-    #services .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-top: 3rem; }
-    .service-card { background: var(--white); padding: 2.5rem; border-radius: 8px; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-    .service-card:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(0,0,0,0.15); }
-    .service-card h3 { color: var(--green); margin-bottom: 1rem; }
-    .service-card p { font-size: 0.95rem; line-height: 1.6; color: rgba(0,0,0,0.75); }
-    .service-card .label { display: inline-block; margin-top: 1.5rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); font-weight: 600; }
-    .service-link { display: inline-flex; margin-top: 1.5rem; font-size: 0.95rem; color: var(--green); text-decoration: none; font-weight: 500; align-items: center; gap: 0.5rem; transition: color 0.3s ease; }
-    .service-link:hover { color: var(--gold); }
+    /* ─── NAV ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      height: var(--nav-h);
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    .language-switch {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .language-switch button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+      padding: 0.25rem 0.5rem;
+    }
+    .language-switch button.active {
+      color: var(--gold);
+    }
+    .language-switch button:hover {
+      color: var(--gold);
+    }
 
-    /* ─── RITUALS ─── */
-    #rituals { background: var(--white); }
-    #rituals .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; margin-top: 3rem; }
-    .ritual-card { text-align: center; }
-    .ritual-card .icon { font-size: 4rem; margin-bottom: 1.5rem; opacity: 0.8; }
-    .ritual-card h3 { color: var(--dark); margin-bottom: 0.75rem; }
-    .ritual-card p { font-size: 0.95rem; line-height: 1.6; color: rgba(0,0,0,0.7); }
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, var(--ivory) 0%, var(--ivory2) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: rgba(143, 175, 138, 0.08);
+      z-index: 0;
+    }
+    .hero-content {
+      text-align: center;
+      max-width: 700px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-content .eyebrow {
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 500;
+      line-height: 1.1;
+      margin: 1rem 0 2rem 0;
+      color: var(--charcoal);
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #666;
+      margin: 0 0 3rem 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-    /* ─── MEMBERSHIP ─── */
-    #membership { background: linear-gradient(135deg, var(--dark) 0%, #3a3a3a 100%); color: var(--white); }
-    #membership h2 { color: var(--white); margin-bottom: 3rem; }
-    #membership .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
-    .membership-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); padding: 2.5rem; border-radius: 8px; text-align: center; transition: all 0.3s ease; }
-    .membership-card:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.4); }
-    .membership-card h3 { color: var(--gold); margin-bottom: 1rem; }
-    .membership-card .price { font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; color: var(--white); }
-    .membership-card p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.9; }
-    .membership-card ul { list-style: none; margin-bottom: 2rem; text-align: left; }
-    .membership-card li { padding: 0.5rem 0; font-size: 0.9rem; opacity: 0.8; }
-    .membership-card li::before { content: '✓ '; color: var(--gold); margin-right: 0.5rem; font-weight: bold; }
+    /* ─── SECTION STYLES ─── */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .section-header .eyebrow {
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .section-header .section-title {
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+    }
+    .section-header .subtitle {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ─── SERVICES GRID ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .service-card {
+      background: var(--white);
+      padding: 2.5rem;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: 4px;
+      transition: all 0.4s ease;
+      text-align: center;
+    }
+    .service-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 8px 32px rgba(201, 169, 110, 0.1);
+    }
+    .service-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 1.5rem 0 1rem 0;
+      color: var(--charcoal);
+    }
+    .service-card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #666;
+      margin: 0;
+    }
+    .service-card .icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+    }
+
+    /* ─── PHILOSOPHY ─── */
+    .philosophy {
+      background: linear-gradient(135deg, var(--ivory2) 0%, rgba(143, 175, 138, 0.08) 100%);
+    }
+    .philosophy-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .philosophy-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      color: var(--charcoal);
+    }
+    .philosophy-text p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+    .philosophy-image {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+    .philosophy-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials-section {
+      background: var(--ivory);
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .testimonial-card {
+      background: var(--white);
+      padding: 2rem;
+      border-left: 3px solid var(--gold);
+      border-radius: 2px;
+      display: flex;
+      flex-direction: column;
+    }
+    .testimonial-card p {
+      font-style: italic;
+      color: #666;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--charcoal);
+      font-size: 0.9rem;
+    }
+    .testimonial-title {
+      font-size: 0.8rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 0.3rem;
+    }
+    .stars {
+      color: var(--gold);
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* ─── TEAM ─── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .team-card {
+      text-align: center;
+    }
+    .team-card-image {
+      width: 100%;
+      aspect-ratio: 1 / 1.2;
+      background: linear-gradient(135deg, var(--ivory2), rgba(143, 175, 138, 0.1));
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: rgba(44, 44, 44, 0.2);
+    }
+    .team-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .team-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.5rem;
+    }
+    .team-card .title {
+      font-size: 0.85rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+    .team-card p {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* ─── FAQSECTION ─── */
+    .faq-section {
+      background: var(--ivory);
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+    .faq-item {
+      margin-bottom: 1.5rem;
+    }
+    .faq-item h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      cursor: pointer;
+      margin-bottom: 0.8rem;
+      transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .faq-item h4:hover {
+      color: var(--gold);
+    }
+    .faq-toggle {
+      width: 1.5rem;
+      height: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: var(--gold);
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+    .faq-item.active .faq-toggle {
+      background: var(--gold);
+      color: var(--white);
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #666;
+      padding-left: 2.3rem;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      margin-bottom: 1rem;
+    }
 
     /* ─── CONTACT ─── */
-    #contact { background: var(--ivory2); }
-    #contact .container { max-width: 1000px; }
-    #contact h2 { margin-bottom: 2rem; text-align: center; }
-    #contact form { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem; }
-    #contact form input, #contact form textarea { padding: 1rem; border: 1px solid rgba(0,0,0,0.15); border-radius: 4px; font-family: inherit; font-size: 1rem; }
-    #contact form textarea { grid-column: 1 / -1; resize: vertical; min-height: 120px; }
-    #contact form button { grid-column: 1 / -1; }
-    #contact .info { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem; text-align: center; }
-    #contact .info-item h4 { color: var(--green); margin-bottom: 0.5rem; font-weight: 600; }
-    #contact .info-item p { font-size: 0.95rem; opacity: 0.8; }
-    #contact .map { margin-top: 3rem; border-radius: 8px; overflow: hidden; height: 400px; }
-    #contact .map iframe { width: 100%; height: 100%; border: none; }
+    .contact-section {
+      background: linear-gradient(135deg, rgba(143, 175, 138, 0.08) 0%, var(--ivory2) 100%);
+    }
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .contact-item {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .contact-item-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(201, 169, 110, 0.1);
+      border-radius: 50%;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+    .contact-item-text h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.3rem;
+    }
+    .contact-item-text p {
+      font-size: 0.9rem;
+      color: #666;
+      margin: 0;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .form-group input,
+    .form-group textarea {
+      padding: 0.75rem 1rem;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      background: var(--white);
+      border-radius: 2px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      transition: all 0.3s ease;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #999;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      background: rgba(201, 169, 110, 0.05);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .form-submit {
+      align-self: flex-start;
+    }
 
     /* ─── FOOTER ─── */
-    footer { background: var(--dark); color: var(--white); padding: 3rem 5vw; text-align: center; }
-    footer p { margin: 0.5rem 0; font-size: 0.9rem; opacity: 0.8; }
-    footer .footer-links { margin-top: 2rem; display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
-    footer a { color: var(--gold); text-decoration: none; font-size: 0.9rem; transition: opacity 0.3s ease; }
-    footer a:hover { opacity: 0.7; }
-
-    /* ─── ANIMATIONS ─── */
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    .fade-in-up { animation: fadeInUp 1s ease-out; }
-    .fade-in { animation: fadeIn 1s ease-out; }
+    footer {
+      background: var(--dark);
+      color: var(--white);
+      padding: 4rem 2rem 2rem 2rem;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--gold);
+    }
+    .footer-section ul li {
+      margin-bottom: 0.8rem;
+    }
+    .footer-section ul li a {
+      font-size: 0.9rem;
+      color: #ccc;
+      transition: color 0.3s ease;
+    }
+    .footer-section ul li a:hover {
+      color: var(--gold);
+    }
+    .footer-cta {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: #ccc;
+      margin-bottom: 1.5rem;
+    }
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    .footer-social a:hover {
+      background: var(--gold);
+      color: var(--dark);
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #999;
+    }
+    .footer-bottom a {
+      color: #999;
+      transition: color 0.3s ease;
+    }
+    .footer-bottom a:hover {
+      color: var(--gold);
+    }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
-      .section { padding: 2rem 5vw; }
-      #hero h1 { font-size: 2.5rem; }
-      #hero .subtitle { font-size: 1.2rem; }
-      .container { padding: 0 5vw; }
-      nav { position: relative; }
-      .navbar { flex-direction: row; padding: 1rem 5vw; }
-      #about .grid, #services .grid { grid-template-columns: 1fr; }
-      #contact form { grid-template-columns: 1fr; }
+      nav { padding: 1rem; }
+      .nav-links { gap: 1.5rem; }
+      .nav-links a { font-size: 0.85rem; }
+      .hero { padding: 2rem; }
+      .hero::before { display: none; }
+      section { padding: 3rem 1.5rem; }
+      .philosophy-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .faq-grid { grid-template-columns: 1fr; }
+      .contact-content { grid-template-columns: 1fr; }
+      .footer-content { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 1rem; }
     }
+
+    /* ─── MULTILINGUAL TEXT OVERRIDES ─── */
+    .translation-en .en { display: block; }
+    .translation-en .es { display: none; }
+    .translation-en .fr { display: none; }
+
+    .translation-es .es { display: block; }
+    .translation-es .en { display: none; }
+    .translation-es .fr { display: none; }
+
+    .translation-fr .fr { display: block; }
+    .translation-fr .en { display: none; }
+    .translation-fr .es { display: none; }
   </style>
 </head>
-<body>
-  <!-- Navbar -->
+<body class="translation-es">
+  <!-- NAV -->
   <nav>
-    <div class="navbar">
-      <a href="#hero" class="nav-logo">MAISON <span>HIKARI</span></a>
-      <ul class="nav-links">
-        <li><a href="#about"      data-lang="es">Nosotros</a>      <a href="#about"      data-lang="en">About</a></li>
-        <li><a href="#services"   data-lang="es">Servicios</a>     <a href="#services"   data-lang="en">Services</a></li>
-        <li><a href="#rituals"    data-lang="es">Rituales</a>      <a href="#rituals"    data-lang="en">Rituals</a></li>
-        <li><a href="#membership" data-lang="es">Membresía</a>     <a href="#membership" data-lang="en">Membership</a></li>
-        <li><a href="#contact"    data-lang="es">Contacto</a>      <a href="#contact"    data-lang="en">Contact</a></li>
-      </ul>
-      <div class="nav-lang">
-        <button onclick="setLanguage('es')" class="active">ES</button>
-        <button onclick="setLanguage('en')">EN</button>
-        <button onclick="setLanguage('ru')">RU</button>
-      </div>
-      <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+    <div class="logo">MAISON HIKARI</div>
+    <ul class="nav-links">
+      <li><a href="#services"><span class="en">Services</span><span class="es">Servicios</span><span class="fr">Services</span></a></li>
+      <li><a href="#philosophy"><span class="en">Philosophy</span><span class="es">Filosofía</span><span class="fr">Philosophie</span></a></li>
+      <li><a href="#team"><span class="en">Team</span><span class="es">Equipo</span><span class="fr">Équipe</span></a></li>
+      <li><a href="#faq"><span class="en">FAQ</span><span class="es">Preguntas</span><span class="fr">FAQ</span></a></li>
+      <li><a href="#contact"><span class="en">Contact</span><span class="es">Contacto</span><span class="fr">Contact</span></a></li>
+    </ul>
+    <div class="language-switch">
+      <button class="lang-en active" data-lang="en">EN</button>
+      <button class="lang-es" data-lang="es">ES</button>
+      <button class="lang-fr" data-lang="fr">FR</button>
     </div>
   </nav>
 
-  <!-- Mobile Menu -->
-  <div class="nav-mobile" id="mobile-menu">
-    <a href="#about"      onclick="closeMenu()" data-lang="es">Nosotros</a>
-    <a href="#about"      onclick="closeMenu()" data-lang="en">About</a>
-    <a href="#about"      onclick="closeMenu()" data-lang="ru">О нас</a>
-    <a href="#services"   onclick="closeMenu()" data-lang="es">Servicios</a>
-    <a href="#services"   onclick="closeMenu()" data-lang="en">Services</a>
-    <a href="#services"   onclick="closeMenu()" data-lang="ru">Услуги</a>
-    <a href="#rituals"    onclick="closeMenu()" data-lang="es">Rituales</a>
-    <a href="#rituals"    onclick="closeMenu()" data-lang="en">Rituals</a>
-    <a href="#rituals"    onclick="closeMenu()" data-lang="ru">Ритуалы</a>
-    <a href="#membership" onclick="closeMenu()" data-lang="es">Membresía</a>
-    <a href="#membership" onclick="closeMenu()" data-lang="en">Membership</a>
-    <a href="#membership" onclick="closeMenu()" data-lang="ru">Членство</a>
-    <a href="#contact"    onclick="closeMenu()" data-lang="es">Contacto</a>
-    <a href="#contact"    onclick="closeMenu()" data-lang="en">Contact</a>
-    <a href="#contact"    onclick="closeMenu()" data-lang="ru">Контакт</a>
-    <div style="border-top: 1px solid rgba(0,0,0,0.1); margin-top: 1rem; padding-top: 1rem;">
-      <button onclick="setLanguage('es'); closeMenu()" data-lang="es">Español</button>
-      <button onclick="setLanguage('en'); closeMenu()" data-lang="en">English</button>
-      <button onclick="setLanguage('ru'); closeMenu()" data-lang="ru">Русский</button>
-    </div>
-  </div>
-
-  <!-- Hero -->
-  <section id="hero">
-    <div class="container" style="text-align: center;">
-      <h1><span data-lang="es">MAISON HIKARI</span><span data-lang="en">MAISON HIKARI</span><span data-lang="ru">MAISON HIKARI</span></h1>
-      <p class="subtitle" data-lang="es">Donde la medicina estética encuentra el ritual del bienestar</p>
-      <p class="subtitle" data-lang="en">Where Medical Aesthetics Meets Wellness Ritual</p>
-      <p class="subtitle" data-lang="ru">Где эстетическая медицина встречается с ритуалом благополучия</p>
-      <p class="eyebrow" data-lang="es">ABRIENDO • 17 DE ABRIL DE 2026</p>
-      <p class="eyebrow" data-lang="en">OPENING • APRIL 17, 2026</p>
-      <p class="eyebrow" data-lang="ru">ОТКРЫТИЕ • 17 АПРЕЛЯ 2026</p>
-      <div class="cta">
-        <a href="#contact" class="btn btn-gold" data-lang="es">Conocer Más</a>
-        <a href="#contact" class="btn btn-gold" data-lang="en">Learn More</a>
-        <a href="#contact" class="btn btn-gold" data-lang="ru">Узнать больше</a>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="eyebrow"><span class="en">LUXURY MEDICAL AESTHETIC SANCTUARY</span><span class="es">SANTUARIO DE ESTÉTICA MÉDICA DE LUJO</span><span class="fr">SANCTUAIRE DE BEAUTÉ MÉDICALE DE LUXE</span></div>
+      <h1 class="hero-title">MAISON HIKARI</h1>
+      <p class="hero-subtitle"><span class="en">Where Medical Aesthetics Meets Wellness Ritual</span><span class="es">Donde la medicina estética encuentra el ritual del bienestar</span><span class="fr">Où l'esthétique médicale rencontre le rituel du bien-être</span></p>
+      <div class="hero-buttons">
+        <button class="btn"><span class="en">Discover</span><span class="es">Descubre</span><span class="fr">Découvrir</span></button>
+        <button class="btn btn-gold"><span class="en">Book Now</span><span class="es">Reserva</span><span class="fr">Réserver</span></button>
       </div>
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="section-title" data-lang="es">Nosotros</h2>
-      <h2 class="section-title" data-lang="en">About Us</h2>
-      <h2 class="section-title" data-lang="ru">О нас</h2>
-      <div class="grid">
-        <div>
-          <p data-lang="es">En MAISON HIKARI, creemos que la belleza verdadera es un reflejo del bienestar interior. Nuestro santuario combina tecnología médica de punta con rituales de bienestar holísticos, creando una experiencia de transformación única.</p>
-          <p data-lang="en">At MAISON HIKARI, we believe that true beauty is a reflection of inner wellness. Our sanctuary combines cutting-edge medical technology with holistic wellness rituals, creating a unique transformation experience.</p>
-          <p data-lang="ru">В MAISON HIKARI мы верим, что истинная красота отражает внутреннее благополучие. Наш оазис объединяет передовые медицинские технологии с холистическими ритуалами благополучия, создавая уникальный опыт трансформации.</p>
-          <p data-lang="es">Ubicada en el corazón de Punta Cana, ofrecemos un espacio donde la medicina estética y el lujo convergen.</p>
-          <p data-lang="en">Located in the heart of Punta Cana, we offer a space where aesthetic medicine and luxury converge.</p>
-          <p data-lang="ru">Расположенный в сердце Пунта-Каны, мы предлагаем пространство, где эстетическая медицина и роскошь сходятся воедино.</p>
-        </div>
-        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Sanctuary" />
+  <!-- SERVICES -->
+  <section id="services" class="services-section">
+    <div class="section-header">
+      <div class="eyebrow"><span class="en">TREATMENT OFFERINGS</span><span class="es">NUESTROS SERVICIOS</span><span class="fr">NOS SERVICES</span></div>
+      <h2 class="section-title"><span class="en">Bespoke Medical Aesthetic Treatments</span><span class="es">Tratamientos de Estética Médica Personalizados</span><span class="fr">Traitements d'Esthétique Médicale Personnalisés</span></h2>
+      <p class="subtitle"><span class="en">Each treatment is designed with precision and care to enhance your natural beauty and boost confidence.</span><span class="es">Cada tratamiento está diseñado con precisión y cuidado para mejorar tu belleza natural y aumentar tu confianza.</span><span class="fr">Chaque traitement est conçu avec précision et soin pour améliorer votre beauté naturelle et renforcer votre confiance.</span></p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="icon">💉</div>
+        <h3><span class="en">Injectables</span><span class="es">Inyectables</span><span class="fr">Produits Injectables</span></h3>
+        <p><span class="en">Professional-grade fillers and neurotoxins administered with artistic precision.</span><span class="es">Rellenos y neurotoxinas de grado profesional administrados con precisión artística.</span><span class="fr">Produits de comblement et neurotoxines de qualité professionnelle administrés avec précision artistique.</span></p>
+      </div>
+      <div class="service-card">
+        <div class="icon">✨</div>
+        <h3><span class="en">Skin Treatments</span><span class="es">Tratamientos de Piel</span><span class="fr">Traitements de Peau</span></h3>
+        <p><span class="en">Advanced resurfacing, rejuvenation, and restoration using cutting-edge technology.</span><span class="es">Tratamientos avanzados de rejuvenecimiento y restauración usando tecnología de punta.</span><span class="fr">Traitements avancés de rajeunissement et de restauration utilisant la technologie de pointe.</span></p>
+      </div>
+      <div class="service-card">
+        <div class="icon">💪</div>
+        <h3><span class="en">Body Contouring</span><span class="es">Contorneado Corporal</span><span class="fr">Contouring Corporel</span></h3>
+        <p><span class="en">Non-invasive body sculpting to enhance and refine your silhouette.</span><span class="es">Esculpido corporal no invasivo para mejorar y refinar tu silueta.</span><span class="fr">Sculpture corporelle non invasive pour améliorer et affiner votre silhouette.</span></p>
       </div>
     </div>
   </section>
 
-  <!-- Services -->
-  <section id="services" class="section">
-    <div class="container">
-      <h2 class="section-title" data-lang="es">Servicios</h2>
-      <h2 class="section-title" data-lang="en">Services</h2>
-      <h2 class="section-title" data-lang="ru">Услуги</h2>
-      <div class="grid">
-        <div class="service-card">
-          <h3 data-lang="es">Tratamientos Faciales Avanzados</h3>
-          <h3 data-lang="en">Advanced Facial Treatments</h3>
-          <h3 data-lang="ru">Передовые лицевые процедуры</h3>
-          <p data-lang="es">Inyecciones de ácido hialurónico, botox, y filler de última generación con técnicas personalizadas.</p>
-          <p data-lang="en">Hyaluronic acid injections, botox, and latest-generation fillers with personalized techniques.</p>
-          <p data-lang="ru">Инъекции гиалуроновой кислоты, ботокс и филлеры последнего поколения с персонализированными техниками.</p>
-          <a href="#contact" class="service-link" data-lang="es">Conocer más →</a>
-          <a href="#contact" class="service-link" data-lang="en">Learn more →</a>
-          <a href="#contact" class="service-link" data-lang="ru">Узнать больше →</a>
-        </div>
-        <div class="service-card">
-          <h3 data-lang="es">Tratamientos Corporales</h3>
-          <h3 data-lang="en">Body Treatments</h3>
-          <h3 data-lang="ru">Процедуры для тела</h3>
-          <p data-lang="es">Liposucción ultrasónica, radiofrecuencia, y tratamientos de modelado corporal innovadores.</p>
-          <p data-lang="en">Ultrasonic liposuction, radiofrequency, and innovative body sculpting treatments.</p>
-          <p data-lang="ru">Ультразвуковая липосакция, радиочастотные методы и инновационные методы моделирования тела.</p>
-          <a href="#contact" class="service-link" data-lang="es">Conocer más →</a>
-          <a href="#contact" class="service-link" data-lang="en">Learn more →</a>
-          <a href="#contact" class="service-link" data-lang="ru">Узнать больше →</a>
-        </div>
-        <div class="service-card">
-          <h3 data-lang="es">Rejuvenecimiento Holístico</h3>
-          <h3 data-lang="en">Holistic Rejuvenation</h3>
-          <h3 data-lang="ru">Комплексное омоложение</h3>
-          <p data-lang="es">Programas integrados que combinan medicina estética con wellness, nutrición y mindfulness.</p>
-          <p data-lang="en">Integrated programs combining aesthetic medicine with wellness, nutrition, and mindfulness.</p>
-          <p data-lang="ru">Комплексные программы, сочетающие эстетическую медицину с благополучием, питанием и осознанностью.</p>
-          <a href="#contact" class="service-link" data-lang="es">Conocer más →</a>
-          <a href="#contact" class="service-link" data-lang="en">Learn more →</a>
-          <a href="#contact" class="service-link" data-lang="ru">Узнать больше →</a>
-        </div>
+  <!-- PHILOSOPHY -->
+  <section id="philosophy" class="philosophy">
+    <div class="section-header">
+      <div class="eyebrow"><span class="en">OUR ETHOS</span><span class="es">NUESTRA FILOSOFÍA</span><span class="fr">NOTRE PHILOSOPHIE</span></div>
+      <h2 class="section-title"><span class="en">Luxury Meets Science</span><span class="es">El Lujo Encuentra la Ciencia</span><span class="fr">Le Luxe Rencontre la Science</span></h2>
+    </div>
+    <div class="philosophy-content">
+      <div class="philosophy-text">
+        <h2><span class="en">Our Vision</span><span class="es">Nuestra Visión</span><span class="fr">Notre Vision</span></h2>
+        <p><span class="en">MAISON HIKARI is more than a clinic—it's a sanctuary where science, art, and luxury converge. We believe that true beauty comes from feeling confident and cared for.</span><span class="es">MAISON HIKARI es más que una clínica, es un santuario donde la ciencia, el arte y el lujo convergen. Creemos que la verdadera belleza proviene de sentirse seguro y cuidado.</span><span class="fr">MAISON HIKARI est plus qu'une clinique, c'est un sanctuaire où la science, l'art et le luxe convergent. Nous croyons que la véritable beauté vient de se sentir en confiance et bien soigné.</span></p>
+        <p><span class="en">Every detail has been thoughtfully curated—from the moment you enter our doors to the final aesthetic result. You are not just receiving a treatment; you are experiencing a ritual of transformation.</span><span class="es">Cada detalle ha sido cuidadosamente seleccionado, desde el momento en que entras por nuestras puertas hasta el resultado estético final. No estás recibiendo solo un tratamiento, estás viviendo un ritual de transformación.</span><span class="fr">Chaque détail a été soigneusement sélectionné, du moment où vous franchissez nos portes jusqu'au résultat esthétique final. Vous ne recevez pas seulement un traitement, vous vivez un rituel de transformation.</span></p>
+      </div>
+      <div class="philosophy-image">
+        <img src="https://images.unsplash.com/photo-1576091160550-112173e7f7cf?auto=format&fit=crop&w=600&q=80" alt="Luxury medical aesthetic sanctuary">
       </div>
     </div>
   </section>
 
-  <!-- Rituals -->
-  <section id="rituals" class="section">
-    <div class="container">
-      <h2 class="section-title" data-lang="es">Rituales Exclusivos</h2>
-      <h2 class="section-title" data-lang="en">Exclusive Rituals</h2>
-      <h2 class="section-title" data-lang="ru">Эксклюзивные ритуалы</h2>
-      <div class="grid">
-        <div class="ritual-card">
-          <div class="icon">✨</div>
-          <h3 data-lang="es">Ritual Matutino de Luz</h3>
-          <h3 data-lang="en">Morning Light Ritual</h3>
-          <h3 data-lang="ru">Утренний ритуал света</h3>
-          <p data-lang="es">Comienza tu día con terapia de luz, ejercicios de respiración y tratamientos faciales rápidos.</p>
-          <p data-lang="en">Start your day with light therapy, breathing exercises, and quick facial treatments.</p>
-          <p data-lang="ru">Начните свой день с светотерапии, дыхательных упражнений и быстрых лицевых процедур.</p>
-        </div>
-        <div class="ritual-card">
-          <div class="icon">🌿</div>
-          <h3 data-lang="es">Ritual Vespertino de Tierra</h3>
-          <h3 data-lang="en">Evening Earth Ritual</h3>
-          <h3 data-lang="ru">Вечерний земельный ритуал</h3>
-          <p data-lang="es">Enraízate con masajes basados en ingredientes naturales y técnicas de relajación profunda.</p>
-          <p data-lang="en">Ground yourself with natural ingredient-based massages and deep relaxation techniques.</p>
-          <p data-lang="ru">Заземлите себя с помощью массажей на основе натуральных ингредиентов и техник глубокой релаксации.</p>
-        </div>
-        <div class="ritual-card">
-          <div class="icon">🌙</div>
-          <h3 data-lang="es">Ritual Nocturno de Restauración</h3>
-          <h3 data-lang="en">Nighttime Restoration Ritual</h3>
-          <h3 data-lang="ru">Ночной ритуал восстановления</h3>
-          <p data-lang="es">Rejuvenece mientras duermes con tratamientos de restauración celular y aromaterapia.</p>
-          <p data-lang="en">Rejuvenate while you sleep with cellular restoration treatments and aromatherapy.</p>
-          <p data-lang="ru">Омолаживайте себя во сне с помощью процедур клеточного восстановления и ароматерапии.</p>
-        </div>
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section">
+    <div class="section-header">
+      <div class="eyebrow"><span class="en">TESTIMONIALS</span><span class="es">TESTIMONIOS</span><span class="fr">TÉMOIGNAGES</span></div>
+      <h2 class="section-title"><span class="en">Our Clients Speak</span><span class="es">Lo Que Dicen Nuestros Clientes</span><span class="fr">Ce Que Disent Nos Clients</span></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p><span class="en">"An absolutely transformative experience. Every moment felt like being cared for by professionals who truly understand luxury and beauty."</span><span class="es">"Una experiencia absolutamente transformadora. Cada momento se sintió como ser cuidado por profesionales que realmente entienden el lujo y la belleza."</span><span class="fr">"Une expérience absolument transformatrice. Chaque moment semblait être pris en charge par des professionnels qui comprennent vraiment le luxe et la beauté."</span></p>
+        <div class="testimonial-author"><span class="en">Victoria M.</span><span class="es">Victoria M.</span><span class="fr">Victoria M.</span></div>
+        <div class="testimonial-title"><span class="en">Wellness Influencer</span><span class="es">Influenciadora de Bienestar</span><span class="fr">Influenceuse Bien-être</span></div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p><span class="en">"The results speak for themselves. Not only did my skin look better, but I felt more confident and radiant than ever before."</span><span class="es">"Los resultados hablan por sí solos. No solo mi piel se veía mejor, sino que me sentía más segura y radiante que nunca."</span><span class="fr">"Les résultats parlent d'eux-mêmes. Non seulement ma peau semblait meilleure, mais je me sentais plus confiante et rayonnante que jamais."</span></p>
+        <div class="testimonial-author"><span class="en">Dr. Alejandra S.</span><span class="es">Dra. Alejandra S.</span><span class="fr">Dr. Alejandra S.</span></div>
+        <div class="testimonial-title"><span class="en">Medical Professional</span><span class="es">Profesional Médico</span><span class="fr">Professionnel Médical</span></div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p><span class="en">"I felt like I was in paradise. The attention to detail and personalized care made all the difference."</span><span class="es">"Me sentía como en el paraíso. La atención al detalle y el cuidado personalizado marcaron la diferencia."</span><span class="fr">"Je me sentais au paradis. L'attention aux détails et les soins personnalisés ont fait toute la différence."</span></p>
+        <div class="testimonial-author"><span class="en">Isabella R.</span><span class="es">Isabella R.</span><span class="fr">Isabella R.</span></div>
+        <div class="testimonial-title"><span class="en">Entrepreneur</span><span class="es">Emprendedora</span><span class="fr">Entrepreneur</span></div>
       </div>
     </div>
   </section>
 
-  <!-- Membership -->
-  <section id="membership" class="section">
-    <div class="container">
-      <h2 class="section-title" data-lang="es">Membresía Hikari</h2>
-      <h2 class="section-title" data-lang="en">Hikari Membership</h2>
-      <h2 class="section-title" data-lang="ru">Членство Hikari</h2>
-      <div class="grid">
-        <div class="membership-card">
-          <h3 data-lang="es">Luminosa</h3>
-          <h3 data-lang="en">Luminosa</h3>
-          <h3 data-lang="ru">Люминоза</h3>
-          <div class="price">$299/mes</div>
-          <p data-lang="es">Acceso básico a nuestros servicios premium</p>
-          <p data-lang="en">Basic access to our premium services</p>
-          <p data-lang="ru">Базовый доступ к нашим премиум-услугам</p>
-          <ul>
-            <li data-lang="es">4 sesiones al mes</li>
-            <li data-lang="en">4 sessions per month</li>
-            <li data-lang="ru">4 сеанса в месяц</li>
-            <li data-lang="es">Descuento en tratamientos</li>
-            <li data-lang="en">Treatments discount</li>
-            <li data-lang="ru">Скидка на процедуры</li>
-            <li data-lang="es">Acceso a eventos</li>
-            <li data-lang="en">Event access</li>
-            <li data-lang="ru">Доступ к мероприятиям</li>
-          </ul>
-          <a href="#contact" class="btn btn-white" data-lang="es">Unirse</a>
-          <a href="#contact" class="btn btn-white" data-lang="en">Join</a>
-          <a href="#contact" class="btn btn-white" data-lang="ru">Присоединиться</a>
+  <!-- TEAM -->
+  <section id="team" class="team-section">
+    <div class="section-header">
+      <div class="eyebrow"><span class="en">EXCELLENCE</span><span class="es">EXCELENCIA</span><span class="fr">EXCELLENCE</span></div>
+      <h2 class="section-title"><span class="en">Meet Our Experts</span><span class="es">Conoce a Nuestros Expertos</span><span class="fr">Rencontrez Nos Experts</span></h2>
+      <p class="subtitle"><span class="en">Our team of renowned aesthetic professionals brings decades of combined experience and an unwavering commitment to excellence.</span><span class="es">Nuestro equipo de profesionales estéticos reconocidos aporta décadas de experiencia combinada y un compromiso inquebrantable con la excelencia.</span><span class="fr">Notre équipe de professionnels esthétiques renommés apporte des décennies d'expérience combinée et un engagement inébranlable envers l'excellence.</span></p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-card-image">👨‍⚕️</div>
+        <h3><span class="en">Dr. Marco L.</span><span class="es">Dr. Marco L.</span><span class="fr">Dr. Marco L.</span></h3>
+        <div class="title"><span class="en">Medical Director</span><span class="es">Director Médico</span><span class="fr">Directeur Médical</span></div>
+        <p><span class="en">20+ years of expertise in aesthetic medicine with a focus on natural, personalized results.</span><span class="es">20+ años de experiencia en medicina estética con enfoque en resultados naturales y personalizados.</span><span class="fr">20+ ans d'expertise en médecine esthétique axée sur des résultats naturels et personnalisés.</span></p>
+      </div>
+      <div class="team-card">
+        <div class="team-card-image">👩‍⚕️</div>
+        <h3><span class="en">Dr. Sophia G.</span><span class="es">Dra. Sophia G.</span><span class="fr">Dr. Sophia G.</span></h3>
+        <div class="title"><span class="en">Lead Skin Specialist</span><span class="es">Especialista en Piel Líder</span><span class="fr">Spécialiste Peau Principal</span></div>
+        <p><span class="en">Specialized in advanced skin rejuvenation with a passion for combining technology with artistry.</span><span class="es">Especializada en rejuvenecimiento avanzado de la piel con pasión por combinar tecnología con artístico.</span><span class="fr">Spécialisée dans le rajeunissement avancé de la peau avec une passion pour combiner la technologie et l'art.</span></p>
+      </div>
+      <div class="team-card">
+        <div class="team-card-image">👨‍⚕️</div>
+        <h3><span class="en">Dr. Carlos H.</span><span class="es">Dr. Carlos H.</span><span class="fr">Dr. Carlos H.</span></h3>
+        <div class="title"><span class="en">Body Contouring Expert</span><span class="es">Experto en Contorneado Corporal</span><span class="fr">Expert Contouring Corporel</span></div>
+        <p><span class="en">Specializes in non-invasive body sculpting with an artistic approach to creating balanced silhouettes.</span><span class="es">Se especializa en esculpido corporal no invasivo con enfoque artístico para crear siluetas equilibradas.</span><span class="fr">Se spécialise dans la sculpture corporelle non invasive avec une approche artistique pour créer des silhouettes équilibrées.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq-section">
+    <div class="section-header">
+      <div class="eyebrow"><span class="en">QUESTIONS</span><span class="es">PREGUNTAS FRECUENTES</span><span class="fr">QUESTIONS FRÉQUENTES</span></div>
+      <h2 class="section-title"><span class="en">Frequently Asked Questions</span><span class="es">Preguntas Frecuentes</span><span class="fr">Questions Fréquemment Posées</span></h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4>
+          <span class="faq-toggle">+</span>
+          <span><span class="en">What should I expect during my first visit?</span><span class="es">¿Qué debo esperar en mi primera visita?</span><span class="fr">Que dois-je attendre lors de ma première visite?</span></span>
+        </h4>
+        <div class="faq-answer">
+          <span class="en">Your first visit begins with a comprehensive consultation where we discuss your goals, assess your unique needs, and create a personalized treatment plan. We take time to understand your vision and ensure you feel comfortable and informed.</span><span class="es">Tu primera visita comienza con una consulta exhaustiva donde discutimos tus objetivos, evaluamos tus necesidades únicas y creamos un plan de tratamiento personalizado. Nos tomamos el tiempo para entender tu visión y asegurar que te sientas cómodo e informado.</span><span class="fr">Votre première visite commence par une consultation approfondie où nous discutons de vos objectifs, évaluons vos besoins uniques et créons un plan de traitement personnalisé. Nous prenons le temps de comprendre votre vision et de nous assurer que vous vous sentez à l'aise et bien informé.</span>
         </div>
-        <div class="membership-card">
-          <h3 data-lang="es">Radiante</h3>
-          <h3 data-lang="en">Radiante</h3>
-          <h3 data-lang="ru">Сияющая</h3>
-          <div class="price">$599/mes</div>
-          <p data-lang="es">Acceso completo a todos los servicios</p>
-          <p data-lang="en">Full access to all services</p>
-          <p data-lang="ru">Полный доступ ко всем услугам</p>
-          <ul>
-            <li data-lang="es">Sesiones ilimitadas</li>
-            <li data-lang="en">Unlimited sessions</li>
-            <li data-lang="ru">Неограниченные сеансы</li>
-            <li data-lang="es">30% descuento en todo</li>
-            <li data-lang="en">30% discount on everything</li>
-            <li data-lang="ru">Скидка 30% на все</li>
-            <li data-lang="es">Consultas privadas</li>
-            <li data-lang="en">Private consultations</li>
-            <li data-lang="ru">Частные консультации</li>
-          </ul>
-          <a href="#contact" class="btn btn-white" data-lang="es">Unirse</a>
-          <a href="#contact" class="btn btn-white" data-lang="en">Join</a>
-          <a href="#contact" class="btn btn-white" data-lang="ru">Присоединиться</a>
+      </div>
+      <div class="faq-item">
+        <h4>
+          <span class="faq-toggle">+</span>
+          <span><span class="en">How long do results typically last?</span><span class="es">¿Cuánto tiempo duran típicamente los resultados?</span><span class="fr">Combien de temps les résultats durent-ils généralement?</span></span>
+        </h4>
+        <div class="faq-answer">
+          <span class="en">Results vary by treatment, but most patients see lasting effects for 6-12 months. During your consultation, we'll discuss the timeline for your specific treatment and recommend maintenance schedules to keep you looking radiant.</span><span class="es">Los resultados varían según el tratamiento, pero la mayoría de los pacientes ven efectos duraderos durante 6-12 meses. Durante tu consulta, discutiremos el cronograma para tu tratamiento específico y recomendaremos horarios de mantenimiento.</span><span class="fr">Les résultats varient selon le traitement, mais la plupart des patients voient des effets durables pendant 6 à 12 mois. Pendant votre consultation, nous discuterons du calendrier de votre traitement spécifique et recommanderons des calendriers d'entretien.</span>
+        </div>
+      </div>
+      <div class="faq-item">
+        <h4>
+          <span class="faq-toggle">+</span>
+          <span><span class="en">Is there downtime after treatments?</span><span class="es">¿Hay tiempo de inactividad después de los tratamientos?</span><span class="fr">Y a-t-il un temps d'arrêt après les traitements?</span></span>
+        </h4>
+        <div class="faq-answer">
+          <span class="en">Most of our treatments are minimally invasive with little to no downtime. Some patients may experience mild redness or swelling that typically resolves within 24-48 hours. We'll provide detailed aftercare instructions to ensure optimal results.</span><span class="es">La mayoría de nuestros tratamientos son mínimamente invasivos con poco o ningún tiempo de inactividad. Algunos pacientes pueden experimentar enrojecimiento o hinchazón leve que típicamente se resuelve en 24-48 horas.</span><span class="fr">La plupart de nos traitements sont minimalement invasifs avec peu ou pas de temps d'arrêt. Certains patients peuvent connaître une légère rougeur ou un gonflement qui se résout généralement en 24 à 48 heures.</span>
+        </div>
+      </div>
+      <div class="faq-item">
+        <h4>
+          <span class="faq-toggle">+</span>
+          <span><span class="en">Are the treatments safe?</span><span class="es">¿Son seguros los tratamientos?</span><span class="fr">Les traitements sont-ils sûrs?</span></span>
+        </h4>
+        <div class="faq-answer">
+          <span class="en">Absolutely. All our treatments are performed by certified medical professionals using FDA-approved products and cutting-edge technology. Safety and your wellbeing are our top priorities.</span><span class="es">Absolutamente. Todos nuestros tratamientos son realizados por profesionales médicos certificados usando productos aprobados por la FDA y tecnología de punta. La seguridad y tu bienestar son nuestras prioridades principales.</span><span class="fr">Absolument. Tous nos traitements sont effectués par des professionnels médicaux certifiés utilisant des produits approuvés par la FDA et une technologie de pointe. La sécurité et votre bien-être sont nos priorités absolues.</span>
+        </div>
+      </div>
+      <div class="faq-item">
+        <h4>
+          <span class="faq-toggle">+</span>
+          <span><span class="en">What is your cancellation policy?</span><span class="es">¿Cuál es tu política de cancelación?</span><span class="fr">Quelle est votre politique d'annulation?</span></span>
+        </h4>
+        <div class="faq-answer">
+          <span class="en">We require 48 hours notice for cancellations to avoid charges. Life happens—we understand! If you need to reschedule, simply contact us, and we'll do our best to accommodate your schedule.</span><span class="es">Requerimos notificación de 48 horas para cancelaciones para evitar cargos. ¡La vida sucede! Si necesitas reprogramar, simplemente contáctanos y haremos lo posible para acomodar tu horario.</span><span class="fr">Nous exigeons un avis de 48 heures pour les annulations afin d'éviter les frais. La vie arrive! Si vous devez reprogrammer, contactez-nous simplement et nous ferons de notre mieux pour accommoder votre horaire.</span>
+        </div>
+      </div>
+      <div class="faq-item">
+        <h4>
+          <span class="faq-toggle">+</span>
+          <span><span class="en">Do you offer financing options?</span><span class="es">¿Ofrecen opciones de financiamiento?</span><span class="fr">Offrez-vous des options de financement?</span></span>
+        </h4>
+        <div class="faq-answer">
+          <span class="en">Yes! We partner with leading financing companies to make luxury aesthetic treatments accessible. We offer flexible payment plans with competitive rates. Ask about our options during your consultation.</span><span class="es">¡Sí! Nos asociamos con empresas financieras líderes para hacer que los tratamientos estéticos de lujo sean accesibles. Ofrecemos planes de pago flexibles con tasas competitivas. Pregunta sobre nuestras opciones durante tu consulta.</span><span class="fr">Oui! Nous nous associons à des sociétés de financement leaders pour rendre les traitements esthétiques de luxe accessibles. Nous proposons des plans de paiement flexibles avec des taux concurrentiels. Demandez nos options lors de votre consultation.</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2 class="section-title" data-lang="es">Contáctanos</h2>
-      <h2 class="section-title" data-lang="en">Get in Touch</h2>
-      <h2 class="section-title" data-lang="ru">Свяжитесь с нами</h2>
-      <form id="contact-form">
-        <input type="text" placeholder="Nombre" data-lang-placeholder="es" required />
-        <input type="text" placeholder="Name" data-lang-placeholder="en" required />
-        <input type="text" placeholder="Имя" data-lang-placeholder="ru" required />
-        <input type="email" placeholder="Email" required />
-        <textarea placeholder="Mensaje" data-lang-placeholder="es" required></textarea>
-        <textarea placeholder="Message" data-lang-placeholder="en" required></textarea>
-        <textarea placeholder="Сообщение" data-lang-placeholder="ru" required></textarea>
-        <button type="submit" class="btn btn-gold" data-lang="es">Enviar</button>
-        <button type="submit" class="btn btn-gold" data-lang="en">Send</button>
-        <button type="submit" class="btn btn-gold" data-lang="ru">Отправить</button>
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="section-header">
+      <div class="eyebrow"><span class="en">GET IN TOUCH</span><span class="es">PONTE EN CONTACTO</span><span class="fr">RESTEZ EN CONTACT</span></div>
+      <h2 class="section-title"><span class="en">Begin Your Transformation</span><span class="es">Comienza Tu Transformación</span><span class="fr">Commencez Votre Transformation</span></h2>
+    </div>
+    <div class="contact-content">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div class="contact-item-text">
+            <h4><span class="en">Location</span><span class="es">Ubicación</span><span class="fr">Localisation</span></h4>
+            <p><span class="en">Punta Cana, Dominican Republic</span><span class="es">Punta Cana, República Dominicana</span><span class="fr">Punta Cana, République Dominicaine</span></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div class="contact-item-text">
+            <h4><span class="en">Phone</span><span class="es">Teléfono</span><span class="fr">Téléphone</span></h4>
+            <p><span class="en">+1 (555) 123-4567</span><span class="es">+1 (555) 123-4567</span><span class="fr">+1 (555) 123-4567</span></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">✉️</div>
+          <div class="contact-item-text">
+            <h4><span class="en">Email</span><span class="es">Correo Electrónico</span><span class="fr">E-mail</span></h4>
+            <p><span class="en">hello@maisonhikari.com</span><span class="es">hello@maisonhikari.com</span><span class="fr">hello@maisonhikari.com</span></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🕐</div>
+          <div class="contact-item-text">
+            <h4><span class="en">Hours</span><span class="es">Horario</span><span class="fr">Horaires</span></h4>
+            <p><span class="en">Mon-Sun: 9 AM - 6 PM EST<br>Closed on public holidays</span><span class="es">Lun-Dom: 9 AM - 6 PM EST<br>Cerrado en días feriados públicos</span><span class="fr">Lun-Dim: 9 AM - 6 PM EST<br>Fermé les jours fériés</span></p>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label><span class="en">Full Name</span><span class="es">Nombre Completo</span><span class="fr">Nom Complet</span></label>
+          <input type="text" placeholder="" required>
+        </div>
+        <div class="form-group">
+          <label><span class="en">Email</span><span class="es">Correo Electrónico</span><span class="fr">E-mail</span></label>
+          <input type="email" placeholder="" required>
+        </div>
+        <div class="form-group">
+          <label><span class="en">Phone</span><span class="es">Teléfono</span><span class="fr">Téléphone</span></label>
+          <input type="tel" placeholder="" required>
+        </div>
+        <div class="form-group">
+          <label><span class="en">Message</span><span class="es">Mensaje</span><span class="fr">Message</span></label>
+          <textarea placeholder="" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold form-submit"><span class="en">Send Message</span><span class="es">Enviar Mensaje</span><span class="fr">Envoyer un Message</span></button>
       </form>
-      <div class="info">
-        <div class="info-item">
-          <h4 data-lang="es">Dirección</h4>
-          <h4 data-lang="en">Address</h4>
-          <h4 data-lang="ru">Адрес</h4>
-          <p>Punta Cana, Dominican Republic</p>
-        </div>
-        <div class="info-item">
-          <h4 data-lang="es">Teléfono</h4>
-          <h4 data-lang="en">Phone</h4>
-          <h4 data-lang="ru">Телефон</h4>
-          <p>+1 (829) 555-0123</p>
-        </div>
-        <div class="info-item">
-          <h4 data-lang="es">Email</h4>
-          <h4 data-lang="en">Email</h4>
-          <h4 data-lang="ru">Электронная почта</h4>
-          <p>info@maisonhikari.com</p>
-        </div>
-      </div>
-      <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.0823827968863!2d-68.40394!3d18.73945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ea535ae5b2c6c79%3A0x7c92f93b9e2e9f3a!2sPunta%20Cana!5e0!3m2!1sen!2sus!4v1626789012345" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
-    <div class="container">
-      <p data-lang="es">© 2026 MAISON HIKARI. Todos los derechos reservados.</p>
-      <p data-lang="en">© 2026 MAISON HIKARI. All rights reserved.</p>
-      <p data-lang="ru">© 2026 MAISON HIKARI. Все права защищены.</p>
-      <div class="footer-links">
-        <a href="#" data-lang="es">Privacidad</a>
-        <a href="#" data-lang="en">Privacy</a>
-        <a href="#" data-lang="ru">Конфиденциальность</a>
-        <a href="#" data-lang="es">Términos</a>
-        <a href="#" data-lang="en">Terms</a>
-        <a href="#" data-lang="ru">Условия</a>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3><span class="en">About</span><span class="es">Acerca de</span><span class="fr">À propos</span></h3>
+        <p class="footer-cta"><span class="en">MAISON HIKARI is a luxury medical aesthetic sanctuary dedicated to excellence, innovation, and personalized care.</span><span class="es">MAISON HIKARI es un santuario de estética médica de lujo dedicado a la excelencia, la innovación y la atención personalizada.</span><span class="fr">MAISON HIKARI est un sanctuaire de beauté médicale de luxe dédié à l'excellence, l'innovation et les soins personnalisés.</span></p>
+      </div>
+      <div class="footer-section">
+        <h3><span class="en">Quick Links</span><span class="es">Enlaces Rápidos</span><span class="fr">Liens Rapides</span></h3>
+        <ul>
+          <li><a href="#services"><span class="en">Services</span><span class="es">Servicios</span><span class="fr">Services</span></a></li>
+          <li><a href="#philosophy"><span class="en">Philosophy</span><span class="es">Filosofía</span><span class="fr">Philosophie</span></a></li>
+          <li><a href="#team"><span class="en">Team</span><span class="es">Equipo</span><span class="fr">Équipe</span></a></li>
+          <li><a href="#faq"><span class="en">FAQ</span><span class="es">Preguntas</span><span class="fr">FAQ</span></a></li>
+          <li><a href="#contact"><span class="en">Contact</span><span class="es">Contacto</span><span class="fr">Contact</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3><span class="en">Connect</span><span class="es">Conectar</span><span class="fr">Connecter</span></h3>
+        <div class="footer-social">
+          <a href="#">f</a>
+          <a href="#">in</a>
+          <a href="#">ig</a>
+        </div>
+        <p class="footer-cta" style="margin-top: 1.5rem;"><span class="en">Follow us for the latest updates and wellness tips.</span><span class="es">Síguenos para las últimas actualizaciones y consejos de bienestar.</span><span class="fr">Suivez-nous pour les dernières mises à jour et conseils bien-être.</span></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span class="en">2026 MAISON HIKARI. All rights reserved.</span><span class="es">2026 MAISON HIKARI. Todos los derechos reservados.</span><span class="fr">2026 MAISON HIKARI. Tous droits réservés.</span></p>
+      <div>
+        <a href="#"><span class="en">Privacy Policy</span><span class="es">Política de Privacidad</span><span class="fr">Politique de Confidentialité</span></a>
+        <span> | </span>
+        <a href="#"><span class="en">Terms of Service</span><span class="es">Términos de Servicio</span><span class="fr">Conditions d'utilisation</span></a>
       </div>
     </div>
   </footer>
 
   <script>
-    // Language switching
-    const currentLang = localStorage.getItem('language') || 'es';
-    
-    function setLanguage(lang) {
-      localStorage.setItem('language', lang);
-      document.body.className = lang === 'es' ? '' : lang;
-      updateLanguageButtons(lang);
-    }
-    
-    function updateLanguageButtons(lang) {
-      document.querySelectorAll('.nav-lang button').forEach(btn => {
-        btn.classList.remove('active');
+    // Language switching functionality
+    document.addEventListener('DOMContentLoaded', function () {
+      const langButtons = document.querySelectorAll('.language-switch button');
+      const body = document.body;
+
+      // Get saved language or default to 'es'
+      const savedLang = localStorage.getItem('selectedLang') || 'es';
+      setLanguage(savedLang);
+
+      langButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          const lang = this.getAttribute('data-lang');
+          setLanguage(lang);
+          localStorage.setItem('selectedLang', lang);
+        });
       });
-      document.querySelector(`.nav-lang button:nth-child(${lang === 'es' ? 1 : lang === 'en' ? 2 : 3})`).classList.add('active');
-    }
-    
-    // Mobile menu toggle
-    function toggleMenu() {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('active');
-    }
-    
-    function closeMenu() {
-      document.getElementById('mobile-menu').classList.remove('active');
-    }
-    
-    // Initialize language on page load
-    setLanguage(currentLang);
-    
+
+      function setLanguage(lang) {
+        // Remove all translation classes
+        body.classList.remove('translation-en', 'translation-es', 'translation-fr');
+        // Add the selected language class
+        body.classList.add('translation-' + lang);
+
+        // Update active button
+        langButtons.forEach(button => {
+          button.classList.remove('active');
+          if (button.getAttribute('data-lang') === lang) {
+            button.classList.add('active');
+          }
+        });
+      }
+    });
+
+    // FAQ toggle functionality
+    document.addEventListener('DOMContentLoaded', function () {
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        item.querySelector('h4').addEventListener('click', function () {
+          item.classList.toggle('active');
+        });
+      });
+    });
+
     // Form submission
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Thank you for your interest! We will contact you soon.');
-      this.reset();
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('contactForm');
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          alert('Thank you for your message! We will get back to you shortly.');
+          form.reset();
+        });
+      }
     });
-    
-    // Smooth scroll and animations
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-          closeMenu();
-        }
-      });
-    });
-    
-    // Intersection Observer for fade-in animations
-    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
-    const observer = new IntersectionObserver(function(entries) {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in-up');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-    
-    document.querySelectorAll('.service-card, .ritual-card, .membership-card').forEach(el => obs.observe(el));
   </script>
 </body>
 </html>
